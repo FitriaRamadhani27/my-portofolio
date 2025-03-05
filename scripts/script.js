@@ -14,11 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
       skill.addEventListener('input', function(e) {
         const value = e.target.value;
         const span = e.target.nextElementSibling;
-        span.textContent = ${value}%;  // Perbaiki disini dengan backticks
-      });
-    });
+        span.textContent = `${value}%`;  // Perbaikan: menggunakan backticks
+      });
+    });
 });
 
-window.location.href = "thanks.html";
-
-document.getElementById("contactForm").reset();
+// Menangani pengiriman form
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Mencegah pengiriman default
+    this.reset(); // Mereset form
+    window.location.href = "thanks.html"; // Redirect ke halaman terima kasih
+});
